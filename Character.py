@@ -8,6 +8,7 @@ class Character(object):
         self.name = name
         self.health = health
         self.power = power
+        self.point_value = 0
 
     def print_status(self):
         print "%s has %d health and %d power." % (self.name, self.health, self.power)

@@ -77,7 +77,8 @@ for i, monster in enumerate(monsters):  # enumerate
         break
     elif i < len(monsters):
         print "You won a battle...shopping time!"
-        # shopping_engine.do_shopping(hero)
+        print "You have %d coins to spend and %d items." % (hero.coins, len(hero.items))
+        shopping_engine.do_shopping(hero)
 
 if hero.is_alive():
     print "Congratulations, %s , you defeated %d enemies and live to fight another day!" % (hero.name, i + 1)

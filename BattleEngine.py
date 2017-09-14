@@ -34,7 +34,8 @@ class BattleEngine(object):
                 # self.logBattle(hero, enemy, "WEAPON", hero_won)
 
         if hero.is_alive():
-            print "You defeated the %s!!" % enemy.name
+            print "You defeated the %s!! and earned %d points" % (enemy.name, enemy.point_value)
+            hero.add_coins(enemy.point_value)
             #self.logBattle(hero, enemy, "WEAPON", hero_won)
             return True
         else:

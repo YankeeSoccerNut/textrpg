@@ -8,6 +8,7 @@ class Hero(Character):
         self.actions = ["Nothing", "Fight", "Flee"]
         self.items = []
         self.item_limit = 3
+        self.coins = 20
 
     def display_actions(self):
         i = 0
@@ -19,8 +20,12 @@ class Hero(Character):
     def cheer_for_hero(self):
         print "Hip Hip Hooray!! %s" % self.name
 
+    def add_coins(self, earnings):
+        self.coins += earnings
+        return self.coins
+
     def has_items(self):
-        return(len(self.store) > 0)
+        return(len(self.items) > 0)
 
     def display_items(self):
         if len(self.items) == 0:
