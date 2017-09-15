@@ -3,7 +3,7 @@ from Character import Character
 
 class Hero(Character):
     def __init__(self):
-        super(Hero, self).__init__("Incognito", 6, 2)
+        super(Hero, self).__init__("Incognito", 100, 100)
 
         self.actions = ["Nothing", "Fight", "Flee"]
         self.items = []
@@ -27,6 +27,9 @@ class Hero(Character):
     def has_items(self):
         return(len(self.items) > 0)
 
+    def has_coins(self):
+        return(self.coins > 0)
+
     def display_items(self):
         if len(self.items) == 0:
             print "You have no items to display"
@@ -40,6 +43,10 @@ class Hero(Character):
             print "%d. %s" % item
 
         return(item_number)  # count of items
+
+    def buy_item(self, item):
+        self.coins -= item.cost
+        item.apply(self)
 
     def use_item(self):
         pass

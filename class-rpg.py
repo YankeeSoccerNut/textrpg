@@ -10,6 +10,7 @@ from Hero import Hero
 from Goblin import Goblin
 from Vampire import Vampire
 from BattleEngine import BattleEngine
+from ShoppingEngine import ShoppingEngine
 
 hero = Hero()
 monsters = []  # list of monsters
@@ -68,6 +69,7 @@ for i in range(0, number_of_enemies):
 # Let the battles begin!
 
 battleEngine = BattleEngine()
+shoppingEngine = ShoppingEngine()
 
 for i, monster in enumerate(monsters):  # enumerate
     hero_won = battleEngine.battle(hero, monster)
@@ -78,7 +80,7 @@ for i, monster in enumerate(monsters):  # enumerate
     elif i < len(monsters):
         print "You won a battle...shopping time!"
         print "You have %d coins to spend and %d items." % (hero.coins, len(hero.items))
-        shopping_engine.do_shopping(hero)
+        shoppingEngine.go_shopping(hero)
 
 if hero.is_alive():
     print "Congratulations, %s , you defeated %d enemies and live to fight another day!" % (hero.name, i + 1)
